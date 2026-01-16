@@ -143,7 +143,7 @@ def download_endpoint(endpoint: str, out_file: Path, params: dict | None = None)
     df = pd.json_normalize(records)
     df.to_csv(out_file, index=False, encoding="utf-8-sig")
 
-    print(f"✅ Saved CSV: {out_file}")
+    print(f"Saved CSV: {out_file}")
     print(f"Rows: {len(df)}, Columns: {len(df.columns)}")
     print("Columns:", list(df.columns))
 
