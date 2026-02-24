@@ -84,6 +84,14 @@ st.markdown("""
         color: #1e3a8a !important;
         border-bottom-color: #1e3a8a !important;
     }
+    .reportview-container {
+        margin-top: -2em;
+    }
+    #MainMenu {visibility: hidden;}
+    .stAppDeployButton {display: none;}
+    .stAppHeader {display: none;}
+    footer {visibility: hidden;}
+    #stDecoration {display: none;}
 </style>
 """, unsafe_allow_html=True)
 
