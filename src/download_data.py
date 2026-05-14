@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 import requests
 import pandas as pd
@@ -16,7 +17,7 @@ DATA_DIR.mkdir(exist_ok=True)
 # ----------------------------
 # Base API endpoint
 # ----------------------------
-BASE_URL = "https://skillscapes.csd.auth.gr:22223"
+SKILLSCAPES_API = os.getenv("SKILLSCAPES_API", "https://skillscapes.csd.auth.gr:22223")
 
 
 # ----------------------------
@@ -117,7 +118,7 @@ def download_endpoint(endpoint: str, out_file: Path, params: dict | None = None)
         out_file: Full path to the CSV file to be created.
         params: Optional dict of query parameters.
     """
-    url = f"{BASE_URL}/{endpoint}"
+    url = f"{SKILLSCAPES_API}/{endpoint}"
     out_file.parent.mkdir(parents=True, exist_ok=True)
 
     params = params or {}

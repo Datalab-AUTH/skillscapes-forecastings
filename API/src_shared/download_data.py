@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 import requests
 import pandas as pd
@@ -8,7 +9,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # ----------------------------
 # Base API endpoint
 # ----------------------------
-BASE_URL = "https://skillscapes.csd.auth.gr:22223"
+SKILLSCAPES_API = os.getenv("SKILLSCAPES_API", "https://skillscapes.csd.auth.gr:22223")
 
 
 # ----------------------------
@@ -74,7 +75,7 @@ def fetch_live_data_as_df(endpoint: str, columns: list, nuts_level: int = 2) -> 
     """
     # Skillscapes API uses hyphens in paths (e.g. greek-tourism)
     api_endpoint = endpoint.replace("_", "-")
-    url = f"{BASE_URL}/{api_endpoint}"
+    url = f"{SKILLSCAPES_API}/{api_endpoint}"
     params = {
         "nuts_level": nuts_level,
         "include": ",".join(columns),

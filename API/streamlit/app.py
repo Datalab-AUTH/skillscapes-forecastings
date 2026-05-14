@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import pandas as pd
 import requests
@@ -88,8 +89,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- API CONFIG ---
-API_BASE_URL = "https://skillscapes.csd.auth.gr:22226"
-SKILLSCAPES_API = "https://skillscapes.csd.auth.gr:22223"
+API_BASE_URL = os.getenv("API_BASE_URL", "https://skillscapes.csd.auth.gr:22226")
+SKILLSCAPES_API = os.getenv("SKILLSCAPES_API", "https://skillscapes.csd.auth.gr:22223")
 
 # --- DESCRIPTIONS DATA ---
 INDICATOR_DESCRIPTIONS = {
