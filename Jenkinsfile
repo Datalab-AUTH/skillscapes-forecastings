@@ -16,17 +16,17 @@ pipeline {
     // the name of your docker image
     // set to 'datalabauth/projectname' for Dockerhub
     // or just to 'projectname' if you're using our private registry
-    dockertag = 'skillscapes-forecasting'
+    dockertag = 'datalabauth/skillscapes-forecasting'
 
     // the registry name
     // set to 'https://registry.hub.docker.com' for DockerHub
     // or to 'https://registry.csd.auth.gr' for our private registry
-    registry = 'https://registry.csd.auth.gr'
+    registry = 'https://registry.hub.docker.com'
 
     // the credentials to the above registry as stored in Jenkins
     // set to 'dockerhub' for DockerHub 
     // or 'datalab-registry' for our private registry
-    registry_credentials = 'datalab-registry'
+    registry_credentials = 'dockerhub'
   }
 
   // you probably don't need to edit anything below this line
