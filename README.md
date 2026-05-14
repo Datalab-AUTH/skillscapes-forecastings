@@ -113,7 +113,35 @@ The API automates the data lifecycle:
 
 ---
 
-## 6. Project Execution Guide
+## 6. Environment Variables
+
+When deploying outside `skillscapes.csd.auth.gr`, override the following environment variables:
+
+| Variable | Default | Used by |
+|----------|---------|---------|
+| `SKILLSCAPES_API` | `https://skillscapes.csd.auth.gr:22223` | Data source (Eurostat wrapper API) — `src/download_data.py`, `API/src_shared/download_data.py`, Streamlit app |
+| `API_BASE_URL` | `https://skillscapes.csd.auth.gr:22226` | Forecasting API URL consumed by the Streamlit dashboard |
+
+For local runs, set them in your shell:
+
+```bash
+export SKILLSCAPES_API=https://your-host:port
+export API_BASE_URL=https://your-host:forecast-port
+```
+
+For Docker, pass them in `docker-compose.yml`:
+
+```yaml
+services:
+  api:
+    environment:
+      - SKILLSCAPES_API=https://your-host:port
+      - API_BASE_URL=https://your-host:forecast-port
+```
+
+---
+
+## 7. Project Execution Guide
 
 1. **Experimental Benchmarking**: Execute scripts in `src/` to view MAPE comparisons and performance plots in `results/`.
 2. **Model Deployment**: Execute `python src/export_models_to_api.py` to train and export the winning models to the API.
